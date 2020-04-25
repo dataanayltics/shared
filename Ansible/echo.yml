@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: run echo command
+      command: /bin/echo hello world
+    - name: run another command
+      command: ls -ltr
+
+

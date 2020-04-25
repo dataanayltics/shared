@@ -1,0 +1,4 @@
+- hosts: all
+  tasks:
+    - name: install apache2
+      apt: name=httpd state=latest

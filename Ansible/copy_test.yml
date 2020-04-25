@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: Copy file from src to remote destination
+      copy:
+        src: /home/ubuntu/ansible_test/echo.yml
+        dest: /tmp/

@@ -1,0 +1,15 @@
+- hosts: all
+  tasks:
+    - ec2:
+       key_name: aianalytics
+       #group: sg-0351458c629c2e8d0
+       instance_type: t2.micro
+       image: ami-0d5d9d301c853a04a
+       wait: yes
+       #group: webserver
+       count: 2
+       vpc_subnet_id: subnet-d4ed6f98
+       assign_public_ip: yes
+       aws_access_key: *********
+       aws_secret_key: *********
+       region: us-east-2

@@ -1,0 +1,49 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+require 'vagrant-aws'
+Vagrant.configure('2') do |config|
+	config.vm.define "web" do |web|
+    web.vm.box = "dummy"
+    web.vm.provider 'aws' do |aws, override|
+    web.vm.network "private_network", type: "dhcp"
+    web.vm.synced_folder ".", "/tmp", type: "rsync"
+    aws.access_key_id = "AKIASRLR7OMMTMGS5H5K"
+    aws.secret_access_key = "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"
+    aws.keypair_name = 'aianalytics'
+    aws.instance_type = "t2.micro"
+    aws.region = 'us-east-2'
+    aws.availability_zone = "us-east-2c"
+    aws.ami = 'ami-0d5d9d301c853a04a'
+    aws.security_groups =["sg-0351458c629c2e8d0"]
+    aws.subnet_id = "subnet-d4ed6f98"
+    aws.tags = {
+		'Name' => 'Vagrant EC2 Instance',
+		'Environment' => 'vagrant-sandbox'
+		}  
+    override.ssh.username = "ubuntu"
+    override.ssh.private_key_path = "/home/ubuntu/aianalytics.pem"
+  end
+  end
+config.vm.define "db" do |db|
+    db.vm.box = "dummy"
+    db.vm.provider 'aws' do |aws, override|
+    db.vm.network "private_network", type: "dhcp"
+    db.vm.synced_folder ".", "/tmp", type: "rsync"
+    aws.access_key_id = "AKIASRLR7OMMTMGS5H5K"
+    aws.secret_access_key = "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"
+    aws.keypair_name = 'aianalytics'
+    aws.instance_type = "t2.micro"
+    aws.region = 'us-east-2'
+    aws.availability_zone = "us-east-2c"
+    aws.ami = 'ami-0d5d9d301c853a04a'
+    aws.security_groups =["sg-0351458c629c2e8d0"]
+    aws.subnet_id = "subnet-d4ed6f98"
+    aws.tags = {
+		'Name' => 'Vagrant EC2 Instance',
+		'Environment' => 'vagrant-sandbox'
+		}  
+    override.ssh.username = "ubuntu"
+    override.ssh.private_key_path = "/home/ubuntu/aianalytics.pem"
+  end
+  end
+end

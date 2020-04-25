@@ -1,0 +1,36 @@
+1) Install
+	sudo apt  install docker.io
+2) sudo docker images
+3) sudo docker run hello-world
+4) sudo docker images
+--------------------------
+5) sudo docker login 
+	username: radhed
+	password: p
+6) sudo docker pull radhed/spring-boot-test:0.0.1-SNAPSHOT
+7) sudo docker images
+8) sudo docker run radhed/spring-boot-test:0.0.1-SNAPSHOT
+9) sudo docker run -p 8081:8080 radhed/spring-boot-test:0.0.1-SNAPSHOT   //port forwarding  http://ec2-18-220-118-86.us-east-2.compute.amazonaws.com:8081/login/sayHello/
+10) sudo docker run -d -p 8081:8080 radhed/spring-boot-test:0.0.1-SNAPSHOT //running in background
+11) sudo docker logs c9def88cc558f49e675ff024fc1f855750ba47e111c10397a597e2c46080423c
+12) sudo docker images
+13) sudo docker ps // list background container running
+14) sudo docker kill c9def88cc558
+---------------------------------
+15) sudo docker ps
+16) sudo docker run -d -p 8080:80 --name webserver1 nginx
+17) sudo docker run -d -p 8081:80 --name webserver2 nginx
+18) sudo docker ps
+19) mkdir docker_test
+20) cd docker_test
+21) vi Dockerfile    https://docs.docker.com/engine/reference/builder/
+22) mkdir myhtml
+23) cd myhtml
+24) vi index.html
+25) sudo docker build -t training_test .
+    sudo docker run -d -p 80:80 training_test
+26) sudo docker images                   sudo docker rm -f $(sudo docker ps -aq)
+27) sudo docker rmi mysql
+
+Docker Networking
+-----------------
